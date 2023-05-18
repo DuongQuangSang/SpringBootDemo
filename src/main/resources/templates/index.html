@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Quản lý sản phẩm</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>商品管理</h1>
+		<div class="text-right">
+			<button class="btn btn-success" style="margin-bottom: 50px;" href="/insert">挿入</button>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>商品名</th>
+					<th>商品の詳細説明</th>
+					<th>公開状態</th>
+					<th>行動</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : ${listProduct}">
+					<td th:text="${product.product_id}"></td>
+					<td th:text="${product.name}"></td>
+					<td th:text="${product.description}"></td>
+					<td><span th:if="${product.public_status}"> <input
+							type="checkbox" id="publicStatus" name="publicStatus"
+							value="true" checked disabled>公開
+					</span> <span th:unless="${product.public_status}"> <input
+							type="checkbox" id="publicStatus" name="publicStatus"
+							value="true" disabled>非公開
+					</span>
+					<td>
+						<button class="btn btn-primary">更新</button>
+						<button class="btn btn-danger">削除</button>
+					</td>
+				</tr>
+				<!-- Các dòng dữ liệu sản phẩm khác -->
+			</tbody>
+		</table>
+
+	</div>
+	<script src="script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
