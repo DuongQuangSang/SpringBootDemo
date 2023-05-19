@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Quản lý sản phẩm</title>
+<title>商品管理</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="style.css">
@@ -11,7 +11,10 @@
 	<div class="container">
 		<h1>商品管理</h1>
 		<div class="text-right">
-			<button class="btn btn-success" style="margin-bottom: 50px;" href="/insert">挿入</button>
+			<form action="/new" method="post">
+				<button class="btn btn-success" style="margin-bottom: 50px;">挿入
+				</button>
+			</form>
 		</div>
 		<table class="table">
 			<thead>
@@ -36,8 +39,12 @@
 							value="true" disabled>非公開
 					</span>
 					<td>
+						<form action="/@{'/edit/' + ${product.product_id}}" method="post">
 						<button class="btn btn-primary">更新</button>
+						</form>
+						<form action="/delete" method="post">
 						<button class="btn btn-danger">削除</button>
+						</form>
 					</td>
 				</tr>
 				<!-- Các dòng dữ liệu sản phẩm khác -->
