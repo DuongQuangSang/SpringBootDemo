@@ -9,14 +9,24 @@
 </head>
 <body>
 	<div class="container">
-		<h1>商品管理</h1>
+		<a href="http://localhost:8081/"><h1>商品管理</h1></a>
 		<div class="text-right">
-			<form action="/new" method="post">
-				<button class="btn btn-success" style="margin-bottom: 50px;">挿入
+			
+<!-- 			<form action="/search" method="post" style="display: inline-block;"> -->
+<!-- 				<input type="text" name="searchTerm" placeholder="Enter product name" /> -->
+<!-- 				<button class="btn btn-success">検索 -->
+<!-- 				</button> -->
+<!-- 			</form> -->
+			<form action="/new" method="post" style="display: inline-block;">
+				<button class="btn btn-success">挿入
+				</button>
+			</form>
+			<form action="/show" method="post" style="display: inline-block;">
+				<button class="btn btn-success">一覧
 				</button>
 			</form>
 		</div>
-		<table class="table">
+		<table class="table" style="margin-top:30px;">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -39,12 +49,13 @@
 							value="true" disabled>非公開
 					</span>
 					<td>
-						<form action="/@{'/edit/' + ${product.product_id}}" method="post">
-						<button class="btn btn-primary">更新</button>
-						</form>
-						<form action="/delete" method="post">
-						<button class="btn btn-danger">削除</button>
-						</form>
+<!-- 						<form action="@{'/edit/' + ${product.product_id}}" method="post" style="display: inline-block;"> -->
+						<a th:href="@{'/edit/' + ${product.product_id}}"><button class="btn btn-primary">更新</button></a>
+<!-- 						</form> --> 
+
+<!-- 						<form action="/delete" method="post" style="display: inline-block;"> -->
+						<a th:href="@{'/delete/' + ${product.product_id}}"><button class="btn btn-danger">削除</button></a>
+<!-- 						</form> -->
 					</td>
 				</tr>
 				<!-- Các dòng dữ liệu sản phẩm khác -->
