@@ -12,11 +12,11 @@
 		<a href="http://localhost:8081/"><h1>商品管理</h1></a>
 		<div class="text-right">
 			
-<!-- 			<form action="/search" method="post" style="display: inline-block;"> -->
-<!-- 				<input type="text" name="searchTerm" placeholder="Enter product name" /> -->
-<!-- 				<button class="btn btn-success">検索 -->
-<!-- 				</button> -->
-<!-- 			</form> -->
+			<form action="/search" method="post" style="display: inline-block;">
+				<input type="text" name="searchTerm" placeholder="Enter product name" />
+				<button class="btn btn-success">検索
+				</button>
+			</form>
 			<form action="/new" method="post" style="display: inline-block;">
 				<button class="btn btn-success">挿入
 				</button>
@@ -31,7 +31,9 @@
 				<tr>
 					<th>ID</th>
 					<th>商品名</th>
-					<th>商品の詳細説明</th>
+					<th>詳細説明</th>
+					<th>属性名</th>
+					<th>属性の値</th>
 					<th>公開状態</th>
 					<th>行動</th>
 				</tr>
@@ -41,10 +43,12 @@
 					<td th:text="${product.product_id}"></td>
 					<td th:text="${product.name}"></td>
 					<td th:text="${product.description}"></td>
-					<td><span th:if="${product.public_status}"> <input
+					<td th:text="${product.attributeName}"></td>
+					<td th:text="${product.attributeValue}"></td>
+					<td><span th:if="${product.publicStatus}"> <input
 							type="checkbox" id="publicStatus" name="publicStatus"
 							value="true" checked disabled>公開
-					</span> <span th:unless="${product.public_status}"> <input
+					</span> <span th:unless="${product.publicStatus}"> <input
 							type="checkbox" id="publicStatus" name="publicStatus"
 							value="true" disabled>非公開
 					</span>

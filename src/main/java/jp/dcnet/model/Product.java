@@ -12,16 +12,37 @@ import jakarta.persistence.Id;
 public class Product {
 	private long product_id;
 	private String name;
-	private String description;
-	private boolean public_status;
 	
-    @Column(name = "start_date")
+	@Column(name = "attribute_name")
+	private String attributeName;
+	
+	@Column(name = "attribute_value")
+	private String attributeValue;
+	
+	private String description;
+	
+	@Column(name = "public_status")
+	private boolean publicStatus;
+	
+	@Column(name = "start_date")
     private LocalDateTime startDate;
 
     @Column(name = "end_date")
     private LocalDateTime endDate;
-	private boolean new_icon;
-	private boolean popular_icon;
+    
+    @Column(name = "new_icon")
+	private boolean newIcon;
+    
+    @Column(name = "popular_icon")
+	private boolean popularIcon;
+	
+	
+//    public Product(long product_id, String name) {
+//		this.product_id = product_id;
+//		this.name = name;
+//	}
+
+
 	
 	public Product() {
 	}
@@ -52,12 +73,12 @@ public class Product {
 		this.description = description;
 	}
 
-	public boolean isPublic_status() {
-		return public_status;
+	public boolean isPublicStatus() {
+		return publicStatus;
 	}
 
-	public void setPublic_status(boolean public_status) {
-		this.public_status = public_status;
+	public void setPublicStatus(boolean publicStatus) {
+		this.publicStatus = publicStatus;
 	}
 	
 	public LocalDateTime getStartDate() {
@@ -76,20 +97,35 @@ public class Product {
         this.endDate = endDate;
     }
 
-	public boolean isNew_icon() {
-		return new_icon;
+	public boolean isNewIcon() {
+		return newIcon;
 	}
 
-	public void setNew_icon(boolean new_icon) {
-		this.new_icon = new_icon;
+	public void setNewIcon(boolean newIcon) {
+		this.newIcon = newIcon;
 	}
 
-	public boolean isPopular_icon() {
-		return popular_icon;
+	public boolean isPopularIcon() {
+		return popularIcon;
 	}
 
-	public void setPopular_icon(boolean popular_icon) {
-		this.popular_icon = popular_icon;
+	public void setPopularIcon(boolean popularIcon) {
+		this.popularIcon = popularIcon;
 	}
-	
+
+	public String getAttributeName() {
+		return attributeName;
+	}
+
+	public void setAttributeName(String attributeName) {
+		this.attributeName = attributeName;
+	}
+
+	public String getAttributeValue() {
+		return attributeValue;
+	}
+
+	public void setAttributeValue(String attributeValue) {
+		this.attributeValue = attributeValue;
+	}
 }

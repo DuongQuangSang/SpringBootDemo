@@ -77,8 +77,8 @@ input[type="submit"]:hover {
 			<label for="description">商品の詳細説明:</label>
 			<textarea id="description" th:field="*{description}" name="description"></textarea><br><br>
 			<label for="public_status">公開状態:</label>
-			<input type="checkbox" th:field="*{public_status}" id="public_status" name="public_status"><br><br>
-			<label for="new_icon">新品状態:</label> <input type="checkbox" th:field="*{new_icon}" id="new_icon" name="new_icon"><br><br>
+			<input type="checkbox" th:field="*{publicStatus}" id="public_status" name="public_status"><br><br>
+			<label for="new_icon">新品状態:</label> <input type="checkbox" th:field="*{newIcon}" id="new_icon" name="new_icon"><br><br>
 			
 			<label for="start_date">表示開始日時</label>
 			<input type="datetime-local" th:field="*{startDate}" id="start_date" name="start_date" required>
@@ -97,7 +97,7 @@ input[type="submit"]:hover {
 			<br><br>
 			
 			<label for="popular_icon">人気状態:</label>
-			<input type="checkbox" th:field="*{popular_icon}" id="popular_icon" name="popular_icon"><br> <br> <input type="submit" value="送信">
+			<input type="checkbox" th:field="*{popularIcon}" id="popular_icon" name="popular_icon"><br> <br> <input type="submit" value="更新">
 		</form>
 	</div>
 	<script src="script.js"></script>

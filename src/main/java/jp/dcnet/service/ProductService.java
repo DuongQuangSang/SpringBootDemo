@@ -38,6 +38,10 @@ public class ProductService {
         return repo.findByStartDateBeforeAndEndDateAfter(currentTime, currentTime);
     }
     
+    public List<Product> sortByAttributeName(String attributeName) {
+    	return repo.findByAttributeName(attributeName);
+    }
+    
 //    @Transactional
     public Product update(Product product) {
     	Product updateResponse = repo.save(product);
